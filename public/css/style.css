@@ -1,0 +1,58 @@
+a {
+  color: #00B7FF;
+}
+.intro {
+  width: 100%;
+  position: relative;
+  height: auto;
+  background: url('/img/launch.jpg') no-repeat;
+  background-size: 100%;
+}
+.intro img {
+  width: 100%;
+  opacity: 0;
+}
+.intro-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.intro h1 {
+  margin-top: 150px;
+  margin-left: 100px;
+}
+.intro h1 span {
+  text-transform: uppercase;
+  font-style: italic;
+}
+.top-bar {
+  width: 100%;
+  border-bottom: 1px solid #e6e6e6;
+}
+.top-bar, .top-bar ul {
+  background-color: transparent !important;
+  -webkit-transition: background-color 250ms linear;
+  -moz-transition: background-color 250ms linear;
+  -o-transition: background-color 250ms linear;
+  -ms-transition: background-color 250ms linear;
+  transition: background-color 250ms linear;
+}
+.sticky-container {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+.is-stuck {
+   background-color: #e6e6e6 !important;
+   -webkit-transition: background-color 250ms linear;
+   -moz-transition: background-color 250ms linear;
+   -o-transition: background-color 250ms linear;
+   -ms-transition: background-color 250ms linear;
+   transition: background-color 250ms linear;
+}
+.what, .who, .why, .how {
+  min-height: 500px;
+  width: 70%;
+  margin: 0 auto;
+}

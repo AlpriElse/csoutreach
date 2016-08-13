@@ -2,6 +2,32 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet' href='/lib/foundation/css/foundation.min.css')
+    link(rel='stylesheet' href='/css/style.css')
+    block stylesheets
   body
+    div(data-sticky-container).fixed
+      div.top-bar(data-sticky data-top-anchor='0' data-options='marginTop:0')
+        div.top-bar-left
+          ul.menu
+            li.menu-title csOUTREACH
+            li
+              a(href='register') register
+            li
+              a(href='tutorials') tutorials
+        div.top-bar-right
+          ul.menu
+            li
+              input(type='search' placeholder='Enter keyword').input-group-field
+            li
+              div.input-group-button
+                input(type='submit' value="search").button
+            
     block content
+    script(src='/lib/foundation/js/vendor/jquery.js')
+    script(src='/lib/foundation/js/vendor/what-input.js')
+    script(src='/lib/foundation/js/vendor/foundation.min.js')
+    script.
+      $(document).ready(function() {
+        $(document).foundation();
+      });
