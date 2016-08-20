@@ -1,0 +1,64 @@
+<div class='callout secondary' ng-controller='RegisrationController'>
+    <br>
+    <br>
+    <br>
+    <h1>Register!</h1>
+    <form novalidate name='regisrationForm' ng-submit='register();'>
+        <div>
+            <label>First Name:
+                <input required
+                    ng-model='firstName'
+                    ng-model-options=" { updateOn: 'default blur' }"
+                    name='firstName'
+                    type='text'
+                    placeholder='i.e. John'>
+            </label>
+            <ng-messages ng-if="regisrationForm.$submitted || regisrationForm.firstName.$touched" for="regisrationForm.firstName.$error" style='color:maroon'>
+                <ng-message when="required">Your first name is required.</ng-message>
+            </ng-messages>
+        </div>
+        <div>
+            <label>Last Name:
+                <input required
+                    ng-model='lastName'
+                    ng-model-options=" { updateOn: 'default blur' }"
+                    name='lastName' type='text'
+                    placeholder='i.e. Doe'>
+            </label>
+            <ng-messages ng-if='regisrationForm.$submitted || regisrationForm.lastName.$touched' for='regisrationForm.lastName.$error' style='color:maroon'>
+                <ng-message when='required'>You last name is required.</ng-message>
+            </ng-messages>
+        </div>
+        <div>
+            <label>Email:
+                <input required
+                    ng-model='email'
+                    ng-model-options=" { updateOn: 'default blur' }"
+                    name='email'
+                    type='email'
+                    placeholder='i.e. example@domain.com'>
+            </label>
+            <ng-messages ng-if='regisrationForm.$submitted || regisrationForm.email.$touched' for="regisrationForm.email.$error" style='color:maroon'>
+                <ng-message when="email">Invalid email.</ng-message>
+                <ng-message when="required">Your email is required.</ng-message>
+            </ng-messages>
+        </div>
+        <div>
+            <label>Phone Number:
+                <input required
+                    ng-model='phoneNumber'
+                    ng-model-options=" { updateOn: 'default blur' }"
+                    name='phoneNumber'
+                    type='text'
+                    placeholder='i.e. (123) 456 7890'>
+            </label>
+            <ng-messages ng-if='regisrationForm.$submitted || regisrationForm.phoneNumber.$touched' for='regisrationForm.phoneNumber.$error' style='color:maroon'>
+                <ng-message when='required'>Your phone number is required. </ng-message>
+            </ng-messages>
+        </div>
+
+        <button class='button' ng-disabled='regisrationForm.$invalid' type='submit'>Register</button>
+    </form>
+
+
+</div>

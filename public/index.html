@@ -1,0 +1,88 @@
+<html ng-app='outreach'>
+    <head>
+        <title></title>
+
+
+        <link rel="stylesheet" href="/lib/foundation/css/foundation.min.css"/>
+        <link rel="stylesheet" href="/css/style.css"/>
+        <style>
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                display: none !important;
+            }
+        </style>
+
+    </head>
+    <body ng-controller='MainController' ng-cloak>
+        <nav>
+            <div data-sticky-container="data-sticky-container" class="fixed">
+                <div data-sticky="data-sticky" data-top-anchor="0" data-options="marginTop:0" class="top-bar">
+                    <div class="top-bar-left">
+                        <ul class="menu">
+                            <li class="menu-title"><a ng-href='/'>CS Outreach</a></li>
+                            <li><a ng-href="#/register">Register</a></li>
+                            <li><a ng-href="#/tutorials">Tutorials</a></li>
+                        </ul>
+                    </div>
+                    <div class="top-bar-right">
+                        <ul class="menu">
+                            <li>
+                                <input type="search" placeholder="Enter keyword" class="input-group-field"/>
+                            </li>
+                            <li>
+                                <div class="input-group-button">
+                                    <input type="submit" value="search" class="button"/>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div ng-view></div>
+
+        <!-- Foundation Dependencies -->
+        <script type='text/javascript' src="/lib/foundation/js/vendor/jquery.js"></script>
+        <script type='text/javascript' src="/lib/foundation/js/vendor/what-input.js"></script>
+        <script type='text/javascript' src="/lib/foundation/js/vendor/foundation.min.js"></script>
+
+        <!-- Core Angular Dependencies -->
+        <script type='text/javascript' src='/lib/angular/angular.min.js'></script>
+        <script type='text/javascript' src='/lib/angular-route/angular-route.min.js'></script>
+        <script type='text/javascript' src='/lib/angular-messages/angular-messages.min.js'></script>
+
+        <script>
+        (function() {
+            $(document).ready(function() {
+                $(document).foundation();
+            });
+
+            var app = angular.module('outreach', ['ngRoute','ngMessages']);
+            app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider){
+                $routeProvider
+                    .when('/', {
+                        templateUrl: '/views/landing.html',
+                        controller: 'MainController'
+
+                    })
+                    .when('/register', {
+                        templateUrl: '/views/register.html',
+                        controller: 'RegisrationController'
+                    })
+            }]);
+
+
+            app.controller('MainController',['$scope', function($scope) {
+
+            }]);
+
+
+            app.controller('RegisrationController',['$scope', function($scope) {
+                $scope.register = function() {
+                    console.log('Registered!');
+                };
+            }]);
+        }());
+
+        </script>
+    </body>
+</html>
