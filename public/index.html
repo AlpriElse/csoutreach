@@ -4,6 +4,7 @@
 
 
         <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/lib/grayscale/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href="/lib/grayscale/css/grayscale.min.css" rel="stylesheet">
@@ -23,7 +24,7 @@
                         Menu <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand page-scroll" ng-href="#/">
-                        <i class="fa fa-play-circle"></i> <span class="light">Computer Science</span> Outreach
+                        <span class="light">Computer Science</span> Outreach
                     </a>
                 </div>
 
@@ -48,6 +49,12 @@
         </nav>
         <div ng-view></div>
 
+        <footer>
+            <div class="container text-center">
+                <p>Copyright &copy; CS Outreach 2016</p>
+            </div>
+        </footer>
+
         <!-- Bootstrap Dependencies -->
         <script src="/lib/jquery/jquery.min.js"></script>
         <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -59,6 +66,7 @@
         <script type='text/javascript' src='/lib/angular/angular.min.js'></script>
         <script type='text/javascript' src='/lib/angular-route/angular-route.min.js'></script>
         <script type='text/javascript' src='/lib/angular-messages/angular-messages.min.js'></script>
+        <script type='text/javascript' src='/lib/smoothscroll/angular-smooth-scroll.min.js'></script>
 
         <script>
         (function() {
@@ -78,8 +86,15 @@
             }]);
 
 
-            app.controller('MainController',['$scope', function($scope) {
-
+            app.controller('MainController',['$anchorScroll', '$location','$scope', function($anchorScroll, $location, $scope) {
+                $anchorScroll.yOffset = -100;
+                $scope.scroll = function(anchor) {
+                  if ($location.hash() !== anchor) {
+                    $location.hash(anchor);
+                  } else {
+                    $anchorScroll();
+                  }
+                };
             }]);
 
 
